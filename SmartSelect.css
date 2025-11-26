@@ -1,0 +1,400 @@
+/**
+ * SmartSelect - Lightweight Searchable Dropdown Styles
+ * Supports both Light and Dark Mode
+ */
+
+.smart-select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-family: inherit;
+}
+
+.smart-select-display {
+    min-height: 38px;
+    padding: 0.375rem 0.75rem;
+    padding-right: 2.5rem;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    line-height: 1.5;
+    color: #212529;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.smart-select-display:hover {
+    border-color: #86b7fe;
+}
+
+.smart-select-display:after {
+    content: '';
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #6c757d;
+    transition: transform 0.2s, border-top-color 0.15s ease-in-out;
+}
+
+.smart-select-wrapper.open .smart-select-display:after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.smart-select-wrapper.open .smart-select-display {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.smart-select-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    margin-top: 0.25rem;
+    display: none;
+    max-height: 300px;
+    overflow: hidden;
+    flex-direction: column;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.smart-select-wrapper.open .smart-select-dropdown {
+    display: flex;
+}
+
+.smart-select-search {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    outline: none;
+    font-size: 0.875rem;
+    background: #f8f9fa;
+    color: #212529;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.smart-select-search:focus {
+    background: #fff;
+}
+
+.smart-select-search::placeholder {
+    color: #6c757d;
+}
+
+.smart-select-options {
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.smart-select-option {
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.15s, color 0.15s;
+    border-bottom: 1px solid #f0f0f0;
+    color: #212529;
+}
+
+.smart-select-option:last-child {
+    border-bottom: none;
+}
+
+.smart-select-option:hover,
+.smart-select-option.highlighted {
+    background-color: #e7f1ff;
+    color: #0d6efd;
+}
+
+.smart-select-option.selected {
+    background-color: #0d6efd;
+    color: #fff;
+    font-weight: 500;
+}
+
+.smart-select-option.selected:hover,
+.smart-select-option.selected.highlighted {
+    background-color: #0b5ed7;
+    color: #fff;
+}
+
+.smart-select-no-results {
+    padding: 1rem;
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .smart-select-display {
+        background-color: #222f3c;
+        border-color: #495057;
+        color: #f8f9fa;
+    }
+
+    .smart-select-display:hover {
+        border-color: #86b7fe;
+        background-color: #2b3035;
+    }
+
+    .smart-select-display:after {
+        border-top-color: #adb5bd;
+    }
+
+    .smart-select-wrapper.open .smart-select-display {
+        border-color: #86b7fe;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+    .smart-select-dropdown {
+        background: #212529;
+        border-color: #495057;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    }
+
+    .smart-select-search {
+        background: #2b3035;
+        border-bottom-color: #495057;
+        color: #f8f9fa;
+    }
+
+    .smart-select-search:focus {
+        background: #343a40;
+        border-bottom-color: #86b7fe;
+    }
+
+    .smart-select-search::placeholder {
+        color: #adb5bd;
+    }
+
+    .smart-select-option {
+        border-bottom-color: #343a40;
+        color: #f8f9fa;
+    }
+
+    .smart-select-option:hover,
+    .smart-select-option.highlighted {
+        background-color: #1e3a5f;
+        color: #86b7fe;
+    }
+
+    .smart-select-option.selected {
+        background-color: #0d6efd;
+        color: #fff;
+    }
+
+    .smart-select-option.selected:hover,
+    .smart-select-option.selected.highlighted {
+        background-color: #0b5ed7;
+        color: #fff;
+    }
+
+    .smart-select-no-results {
+        color: #adb5bd;
+    }
+}
+
+/* Dark Mode Class Support (for manual dark mode toggle) */
+.dark-mode .smart-select-display,
+[data-theme="dark"] .smart-select-display,
+body.dark .smart-select-display {
+    background-color: #212529;
+    border-color: #495057;
+    color: #f8f9fa;
+}
+
+.dark-mode .smart-select-display:hover,
+[data-theme="dark"] .smart-select-display:hover,
+body.dark .smart-select-display:hover {
+    border-color: #86b7fe;
+    background-color: #2b3035;
+}
+
+.dark-mode .smart-select-display:after,
+[data-theme="dark"] .smart-select-display:after,
+body.dark .smart-select-display:after {
+    border-top-color: #adb5bd;
+}
+
+.dark-mode .smart-select-wrapper.open .smart-select-display,
+[data-theme="dark"] .smart-select-wrapper.open .smart-select-display,
+body.dark .smart-select-wrapper.open .smart-select-display {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.dark-mode .smart-select-dropdown,
+[data-theme="dark"] .smart-select-dropdown,
+body.dark .smart-select-dropdown {
+    background: #212529;
+    border-color: #495057;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .smart-select-search,
+[data-theme="dark"] .smart-select-search,
+body.dark .smart-select-search {
+    background: #2b3035;
+    border-bottom-color: #495057;
+    color: #f8f9fa;
+}
+
+.dark-mode .smart-select-search:focus,
+[data-theme="dark"] .smart-select-search:focus,
+body.dark .smart-select-search:focus {
+    background: #343a40;
+    border-bottom-color: #86b7fe;
+}
+
+.dark-mode .smart-select-search::placeholder,
+[data-theme="dark"] .smart-select-search::placeholder,
+body.dark .smart-select-search::placeholder {
+    color: #adb5bd;
+}
+
+.dark-mode .smart-select-option,
+[data-theme="dark"] .smart-select-option,
+body.dark .smart-select-option {
+    border-bottom-color: #343a40;
+    color: #f8f9fa;
+}
+
+.dark-mode .smart-select-option:hover,
+.dark-mode .smart-select-option.highlighted,
+[data-theme="dark"] .smart-select-option:hover,
+[data-theme="dark"] .smart-select-option.highlighted,
+body.dark .smart-select-option:hover,
+body.dark .smart-select-option.highlighted {
+    background-color: #1e3a5f;
+    color: #86b7fe;
+}
+
+.dark-mode .smart-select-option.selected,
+[data-theme="dark"] .smart-select-option.selected,
+body.dark .smart-select-option.selected {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+.dark-mode .smart-select-option.selected:hover,
+.dark-mode .smart-select-option.selected.highlighted,
+[data-theme="dark"] .smart-select-option.selected:hover,
+[data-theme="dark"] .smart-select-option.selected.highlighted,
+body.dark .smart-select-option.selected:hover,
+body.dark .smart-select-option.selected.highlighted {
+    background-color: #0b5ed7;
+    color: #fff;
+}
+
+.dark-mode .smart-select-no-results,
+[data-theme="dark"] .smart-select-no-results,
+body.dark .smart-select-no-results {
+    color: #adb5bd;
+}
+
+/* Scrollbar styling */
+.smart-select-options::-webkit-scrollbar {
+    width: 8px;
+}
+
+.smart-select-options::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.smart-select-options::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.smart-select-options::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Dark Mode Scrollbar */
+@media (prefers-color-scheme: dark) {
+    .smart-select-options::-webkit-scrollbar-track {
+        background: #2b3035;
+    }
+
+    .smart-select-options::-webkit-scrollbar-thumb {
+        background: #495057;
+    }
+
+    .smart-select-options::-webkit-scrollbar-thumb:hover {
+        background: #6c757d;
+    }
+}
+
+.dark-mode .smart-select-options::-webkit-scrollbar-track,
+[data-theme="dark"] .smart-select-options::-webkit-scrollbar-track,
+body.dark .smart-select-options::-webkit-scrollbar-track {
+    background: #2b3035;
+}
+
+.dark-mode .smart-select-options::-webkit-scrollbar-thumb,
+[data-theme="dark"] .smart-select-options::-webkit-scrollbar-thumb,
+body.dark .smart-select-options::-webkit-scrollbar-thumb {
+    background: #495057;
+}
+
+.dark-mode .smart-select-options::-webkit-scrollbar-thumb:hover,
+[data-theme="dark"] .smart-select-options::-webkit-scrollbar-thumb:hover,
+body.dark .smart-select-options::-webkit-scrollbar-thumb:hover {
+    background: #6c757d;
+}
+
+/* Bootstrap form-select compatibility */
+.form-select.smart-select {
+    display: none;
+}
+
+/* Disabled state */
+.smart-select-wrapper.disabled .smart-select-display {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.smart-select-wrapper.disabled .smart-select-display:hover {
+    border-color: #ced4da;
+}
+
+/* Dark Mode Disabled State */
+@media (prefers-color-scheme: dark) {
+    .smart-select-wrapper.disabled .smart-select-display {
+        background-color: #343a40;
+        color: #6c757d;
+    }
+
+    .smart-select-wrapper.disabled .smart-select-display:hover {
+        border-color: #495057;
+    }
+}
+
+.dark-mode .smart-select-wrapper.disabled .smart-select-display,
+[data-theme="dark"] .smart-select-wrapper.disabled .smart-select-display,
+body.dark .smart-select-wrapper.disabled .smart-select-display {
+    background-color: #343a40;
+    color: #6c757d;
+}
+
+.dark-mode .smart-select-wrapper.disabled .smart-select-display:hover,
+[data-theme="dark"] .smart-select-wrapper.disabled .smart-select-display:hover,
+body.dark .smart-select-wrapper.disabled .smart-select-display:hover {
+    border-color: #495057;
+}
