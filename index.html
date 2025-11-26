@@ -1,0 +1,268 @@
+<!-- SmartSelect - Documentation and Demo Page
+Shows how to use the custom searchable dropdown system -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSelect - Searchable Dropdown System</title>
+
+    <!-- Bootstrap CSS (Optional) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- SmartSelect CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/NIBIZ-SOFT/RealBizDEVCDN/SmartSelect.css">
+
+    <style>
+        body {
+            padding: 2rem;
+            background: #f8f9fa;
+        }
+
+        .demo-section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            border-left: 4px solid #0d6efd;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        .code-block code {
+            font-family: "Courier New", monospace;
+            font-size: 0.9rem;
+        }
+
+        h2 {
+            color: #0d6efd;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            color: #495057;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mb-4">🔍 SmartSelect</h1>
+                <p class="text-center text-muted mb-5">Lightweight Searchable Dropdown System - Auto-initializes on
+                    elements with class "smart-select"</p>
+
+                <!-- CDN Links -->
+                <div class="demo-section">
+                    <h2>📦 CDN Links</h2>
+                    <p>Add these to your HTML head section:</p>
+                    <div class="code-block">
+                        <code>
+&lt;!-- SmartSelect CSS --&gt;<br>
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/NIBIZ-SOFT/RealBizDEVCDN/SmartSelect.css"&gt;<br><br>
+&lt;!-- SmartSelect JS (add before closing body tag) --&gt;<br>
+&lt;script src="https://cdn.jsdelivr.net/gh/NIBIZ-SOFT/RealBizDEVCDN/SmartSelect.js"&gt;&lt;/script&gt;
+                        </code>
+                    </div>
+
+                    <p><strong>Or use local files:</strong></p>
+                    <div class="code-block">
+                        <code>
+&lt;link rel="stylesheet" href="./SmartSelect.css"&gt;<br>
+&lt;script src="./SmartSelect.js"&gt;&lt;/script&gt;
+                        </code>
+                    </div>
+                </div>
+
+                <!-- Basic Usage -->
+                <div class="demo-section">
+                    <h2>🚀 Basic Usage</h2>
+                    <p>Simply add the class <code>smart-select</code> to any select element:</p>
+
+                    <div class="code-block">
+                        <code>
+&lt;select class="smart-select form-select"&gt;<br>
+&nbsp;&nbsp;&lt;option value=""&gt;Select an option...&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option value="1"&gt;Option 1&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option value="2"&gt;Option 2&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option value="3"&gt;Option 3&lt;/option&gt;<br>
+&lt;/select&gt;
+                        </code>
+                    </div>
+
+                    <h3>Live Demo:</h3>
+                    <div class="mb-3">
+                        <label class="form-label">Basic Select</label>
+                        <select class="smart-select form-select">
+                            <option value="">Select an option...</option>
+                            <option value="1">Apple</option>
+                            <option value="2">Banana</option>
+                            <option value="3">Cherry</option>
+                            <option value="4">Date</option>
+                            <option value="5">Elderberry</option>
+                            <option value="6">Fig</option>
+                            <option value="7">Grape</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="demo-section">
+                    <h2>✨ Features</h2>
+                    <ul>
+                        <li>✅ <strong>Auto-initialization</strong> - Just add class "smart-select"</li>
+                        <li>✅ <strong>Search functionality</strong> - Type to filter options</li>
+                        <li>✅ <strong>Keyboard navigation</strong> - Arrow keys, Enter, Escape</li>
+                        <li>✅ <strong>Lightweight</strong> - No dependencies (except vanilla JS)</li>
+                        <li>✅ <strong>Bootstrap compatible</strong> - Works with Bootstrap forms</li>
+                        <li>✅ <strong>Responsive</strong> - Works on all screen sizes</li>
+                        <li>✅ <strong>Accessible</strong> - Keyboard and mouse support</li>
+                    </ul>
+                </div>
+
+                <!-- Advanced Examples -->
+                <div class="demo-section">
+                    <h2>📚 Advanced Examples</h2>
+
+                    <h3>With Many Options (Search is very useful here):</h3>
+                    <div class="mb-3">
+                        <label class="form-label">Country Select</label>
+                        <select class="smart-select form-select">
+                            <option value="">Select a country...</option>
+                            <option value="bd">Bangladesh</option>
+                            <option value="us">United States</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="ca">Canada</option>
+                            <option value="au">Australia</option>
+                            <option value="de">Germany</option>
+                            <option value="fr">France</option>
+                            <option value="it">Italy</option>
+                            <option value="es">Spain</option>
+                            <option value="jp">Japan</option>
+                            <option value="cn">China</option>
+                            <option value="in">India</option>
+                            <option value="br">Brazil</option>
+                            <option value="mx">Mexico</option>
+                            <option value="ru">Russia</option>
+                        </select>
+                    </div>
+
+                    <h3>Pre-selected Value:</h3>
+                    <div class="mb-3">
+                        <label class="form-label">Pre-selected Option</label>
+                        <select class="smart-select form-select">
+                            <option value="1">Option 1</option>
+                            <option value="2" selected>Option 2 (Selected)</option>
+                            <option value="3">Option 3</option>
+                            <option value="4">Option 4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Keyboard Shortcuts -->
+                <div class="demo-section">
+                    <h2>⌨️ Keyboard Shortcuts</h2>
+                    <ul>
+                        <li><kbd>Click</kbd> - Open/Close dropdown</li>
+                        <li><kbd>Type</kbd> - Search/filter options</li>
+                        <li><kbd>↑</kbd> / <kbd>↓</kbd> - Navigate options</li>
+                        <li><kbd>Enter</kbd> - Select highlighted option</li>
+                        <li><kbd>Escape</kbd> - Close dropdown</li>
+                    </ul>
+                </div>
+
+                <!-- Integration -->
+                <div class="demo-section">
+                    <h2>🔧 Integration with Forms</h2>
+                    <p>SmartSelect works seamlessly with regular form submissions:</p>
+
+                    <form method="POST" action="#" class="mb-4">
+                        <div class="mb-3">
+                            <label class="form-label">Project Name</label>
+                            <select name="project" class="smart-select form-select" required>
+                                <option value="">Select Project...</option>
+                                <option value="1">Project Alpha</option>
+                                <option value="2">Project Beta</option>
+                                <option value="3">Project Gamma</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Category</label>
+                            <select name="category" class="smart-select form-select" required>
+                                <option value="">Select Category...</option>
+                                <option value="cat1">Category 1</option>
+                                <option value="cat2">Category 2</option>
+                                <option value="cat3">Category 3</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Form</button>
+                    </form>
+                </div>
+
+                <!-- Programmatic Usage -->
+                <div class="demo-section">
+                    <h2>💻 Programmatic Usage</h2>
+                    <p>You can also initialize SmartSelect programmatically:</p>
+
+                    <div class="code-block">
+                        <code>
+// Auto-initialize all selects with class "smart-select"<br>
+// This happens automatically, but you can trigger it manually:<br>
+initSmartSelect();<br><br>
+// Or create instance manually:<br>
+var select = document.querySelector("#mySelect");<br>
+var smartSelect = new SmartSelect(select, {<br>
+&nbsp;&nbsp;placeholder: "Custom placeholder..."<br>
+});
+                        </code>
+                    </div>
+                </div>
+
+                <!-- Browser Support -->
+                <div class="demo-section">
+                    <h2>🌐 Browser Support</h2>
+                    <p>SmartSelect works on all modern browsers:</p>
+                    <ul>
+                        <li>✅ Chrome/Edge (latest)</li>
+                        <li>✅ Firefox (latest)</li>
+                        <li>✅ Safari (latest)</li>
+                        <li>✅ Opera (latest)</li>
+                        <li>✅ IE11+ (with polyfills)</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SmartSelect JS -->
+    <script src="https://cdn.jsdelivr.net/gh/NIBIZ-SOFT/RealBizDEVCDN/SmartSelect.js"></script>
+
+    <script>
+        // Example: Listen to change events
+        document.querySelectorAll(".smart-select").forEach(function (select) {
+            select.addEventListener("change", function () {
+                console.log("Selected value:", this.value);
+                console.log("Selected text:", this.options[this.selectedIndex].text);
+            });
+        });
+    </script>
+</body>
+
+</html>
