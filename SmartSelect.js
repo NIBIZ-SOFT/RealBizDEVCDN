@@ -273,7 +273,7 @@
 
   // Auto-initialize function
   function autoInit() {
-    var selects = document.querySelectorAll("select.smart-select, select.smart-ajax-select");
+    var selects = document.querySelectorAll("select.smart-select");
     selects.forEach(function (select) {
       if (!select.smartSelectInstance) {
         // Wait a bit if select has no options yet (might be dynamically loaded)
