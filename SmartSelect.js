@@ -70,6 +70,16 @@
       }
     });
 
+    // Observe changes to the select element's children (options added via AJAX)
+    if (typeof MutationObserver !== "undefined") {
+      this.optionsObserver = new MutationObserver(function(mutations) {
+        if (!self._updating) {
+          self.syncFromSelect();
+        }
+      });
+      this.optionsObserver.observe(this.element, { childList: true });
+    }
+
     // Close on outside click
     document.addEventListener("click", this.handleOutsideClick.bind(this));
 
@@ -263,7 +273,7 @@
 
   // Auto-initialize function
   function autoInit() {
-    var selects = document.querySelectorAll("select.smart-select");
+    var selects = document.querySelectorAll("select.smart-select, select.smart-ajax-select");
     selects.forEach(function (select) {
       if (!select.smartSelectInstance) {
         // Wait a bit if select has no options yet (might be dynamically loaded)
